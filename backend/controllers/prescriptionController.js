@@ -1,9 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const Prescription = require('../models/Prescription');
 
-// @desc    Create a new prescription
-// @route   POST /api/prescriptions
-// @access  Private
 const createPrescription = asyncHandler(async (req, res) => {
   const { patientName, patientAge, medications, notes } = req.body;
 
@@ -23,9 +20,6 @@ const createPrescription = asyncHandler(async (req, res) => {
   return res.status(201).json(createdPrescription);
 });
 
-// @desc    List prescriptions for logged in user
-// @route   GET /api/prescriptions
-// @access  Private
 const listPrescriptions = asyncHandler(async (req, res) => {
   const prescriptions = await Prescription.find({ user: req.user._id });
   return res.json(prescriptions);

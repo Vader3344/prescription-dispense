@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Schema for individual medication items within a prescription
 const MedicationSchema = new mongoose.Schema(
   {
     name: {
@@ -27,7 +26,6 @@ function medicationsArrayLimit(val) {
   return Array.isArray(val) && val.length > 0;
 }
 
-// Main prescription schema
 const PrescriptionSchema = new mongoose.Schema(
   {
     user: {
